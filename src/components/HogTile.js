@@ -36,9 +36,9 @@ function HogTile( {name, specialty, greased, weight, highestMedalAchieved, activ
             {weight} lbs.
           </span>
           <span>
-            <button onClick={handleHideHog}>Hide</button>
-          </span>
-          <span>
+            <button class="ui icon button" onClick={handleHideHog}>
+              <i class="trash icon"></i>
+            </button>
             {greased ? "Greasey" : "Clean"}
           </span>
         </div> : null

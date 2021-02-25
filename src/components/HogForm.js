@@ -17,6 +17,7 @@ function HogForm( {formData, onFormChange, onFormSubmit} ){
                 <input name="weight" type="number" value={weight} placeholder="Weight" onChange={handleFormChange}></input>
                 <input name="image" type="text" value={image} placeholder="Image Url" onChange={handleFormChange}></input>
                 <input name="specialty" type="text" value={specialty} placeholder="Specialty" onChange={handleFormChange}></input>
+                
                 <label>
                     Greased?
                     <input name="greased" type="checkbox" checked={greased} onChange={handleFormChange}></input>
