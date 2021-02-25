@@ -45,10 +45,12 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="ui grid container">
       <Nav onlyGreasy={onlyGreasy} onHandleGreaseChange={handleGreaseChange} sortBy={sortBy} onSortChange={handleSortChange}/>
       <HogForm formData={formData} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
-      <HogContainer onlyGreasy={onlyGreasy} sortBy={sortBy} hogs={hogsData}/>
+      <div>
+        <HogContainer onlyGreasy={onlyGreasy} sortBy={sortBy} hogs={hogsData}/>
+      </div>
     </div>
   );
 }

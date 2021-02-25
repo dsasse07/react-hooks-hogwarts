@@ -45,7 +45,11 @@ function HogContainer({ onlyGreasy, hogs, sortBy }) {
 
   return (
     <div className="ui grid container">
-      {hogComponents}
+      <div className="ui eight wide column">
+        <div className="ui link cards">
+          {hogComponents}
+        </div>
+      </div>
     </div>
   )
 }
