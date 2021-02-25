@@ -1,15 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import pigImages from '../assets/images'
 
 function HogTile( {name, specialty, greased, weight, highestMedalAchieved, activePig, onShowPigDetails} ) {
   
+  const [hidden, setHidden] = useState(false)
 
-  return (
+  function handleHideHog(){
+    setHidden(!hidden)
+  }
+
+
+  return !hidden ? (
+     
     <div 
       className="ui eight wide column"
       onClick={() => { onShowPigDetails(name) } }
     >
       <h2>{name}</h2>
+      <button onClick={handleHideHog}>Hide hog</button>
       <img 
         src={pigImages[name]} 
         alt={name}
@@ -30,8 +38,10 @@ function HogTile( {name, specialty, greased, weight, highestMedalAchieved, activ
         </div> :
         null
       }
-    </div>
-  )
+    </div> 
+
+    
+  ) : null
 }
 
 export default HogTile
