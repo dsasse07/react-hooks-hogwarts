@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import pigImages from '../assets/images'
 
-function HogTile( {name, specialty, greased, weight, highestMedalAchieved, activePig, onShowPigDetails} ) {
+function HogTile( {name, specialty, greased, weight, highestMedalAchieved, activePig, onShowPigDetails, image} ) {
   
   const [hidden, setHidden] = useState(false)
 
@@ -19,7 +19,7 @@ function HogTile( {name, specialty, greased, weight, highestMedalAchieved, activ
       <h2>{name}</h2>
       <button onClick={handleHideHog}>Hide hog</button>
       <img 
-        src={pigImages[name]} 
+        src={pigImages[name] ? pigImages[name] : image } 
         alt={name}
         style={{
           width: `100%`,

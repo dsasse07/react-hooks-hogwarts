@@ -1,39 +1,41 @@
-import React, {useState} from "react";
+import React from "react";
 
-function HogForm(){
+function HogForm( {formData, onFormChange, onFormSubmit} ){
 
-    const [name, setName] = useState("")
-    const [weight, setWeight] = useState(0)
-    const [specialty, setSpecialty] = useState("")
-    const [greased, setGreased] = useState(false)
-    const [highestMedal, setHighestMedal] = useState("wood")
+    const {name, weight, specialty, greased, highestMedal, image } = formData
+
+    function handleFormChange(e){
+        const key = e.target.name
+        const value = (e.target.type === "checkbox") ? e.target.checked : e.target.value
+        onFormChange( {...formData, [key] :value } )
+    }
 
     return (
-        <form >
-            <input type="text" value={name} placeholder="Name"></input>
-            <input type="number" value={weight}></input>
-            <input type="text" value={specialty}></input>
-            <label>
-                Greased?
-                <input type="checkbox" checked={greased}></input>
-            </label>
-            
-            <select value={highestMedal}>
-                <option value="wood">Wood</option>
-                <option value="bronze">Bronze</option>
-                <option value="silver">Silver</option>
-                <option value="gold">Gold</option>
-                <option value="platinum">Platinum</option>
-                <option value="diamond">Diamond</option>
-            </select>
-            <input type="submit"></input>
-        </form>
+        <div style={{height: `50px`}}>
+            <form onSubmit={onFormSubmit}>
+                <input name="name" type="text" value={name} placeholder="Name" onChange={handleFormChange}></input>
+                <input name="weight" type="number" value={weight} placeholder="Weight" onChange={handleFormChange}></input>
+                <input name="image" type="text" value={image} placeholder="Image Url" onChange={handleFormChange}></input>
+                <input name="specialty" type="text" value={specialty} placeholder="Specialty" onChange={handleFormChange}></input>
+                <label>
+                    Greased?
+                    <input name="greased" type="checkbox" checked={greased} onChange={handleFormChange}></input>
+                </label>
+                <label>
+                    Highest Medal Earned
+                    <select name="highestMedal" value={highestMedal} onChange={handleFormChange}>
+                        <option value="wood">Wood</option>
+                        <option value="bronze">Bronze</option>
+                        <option value="silver">Silver</option>
+                        <option value="gold">Gold</option>
+                        <option value="platinum">Platinum</option>
+                        <option value="diamond">Diamond</option>
+                    </select>
+                </label>
+                <input type="submit"></input>
+            </form>
+        </div>
     )
 }
-
-{/* <select onChange={handleSortChange} value={sortBy}>SelectMenu
-        <option value="name">Name</option>
-        <option value="weight">Weight</option>
-    </select>  */}
 
 export default HogForm;

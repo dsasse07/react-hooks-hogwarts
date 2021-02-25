@@ -27,7 +27,7 @@ function HogContainer({ onlyGreasy, hogs, sortBy }) {
   })
 
 
-  const hogComponents = filteredHogs.map( ({name, specialty, greased, weight, 'highest medal achieved':foo})  => {
+  const hogComponents = filteredHogs.map( ({name, specialty, greased, weight, 'highest medal achieved':foo, image})  => {
     return (
       <HogTile 
         key={name}
@@ -37,6 +37,7 @@ function HogContainer({ onlyGreasy, hogs, sortBy }) {
         weight={weight}
         highestMedalAchieved={foo}
         activePig={activePig}
+        image={image}
         onShowPigDetails={handleShowPigDetails}
       />
     )
